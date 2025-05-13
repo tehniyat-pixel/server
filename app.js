@@ -30,7 +30,7 @@ app.use(adminJs.options.rootPath, router);
 app.use('/api/assets', assetRoutes);
 
 // Connect DB and Start Server
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT;
 
 sequelize.authenticate()
   .then(() => {
@@ -39,7 +39,7 @@ sequelize.authenticate()
   })
   .then(() => {
     app.listen(PORT, () => {
-      console.log(`Server is running on http://localhost:${PORT}`);
+      console.log(`Server is running on ${PORT}`);
     });
   })
   .catch((err) => {
